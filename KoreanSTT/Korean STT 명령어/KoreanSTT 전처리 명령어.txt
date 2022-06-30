@@ -1,0 +1,1 @@
+python ./dataset/kspon/main.py --dataset_path "데이터셋 위치" --vocab_dest "./" --output_unit 'character' --preprocess_mode 'phonetic' 

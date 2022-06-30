@@ -1,0 +1,1 @@
+python ./bin/main.py model=ds2 train=ds2_train train.dataset_path=$데이터셋 위치
