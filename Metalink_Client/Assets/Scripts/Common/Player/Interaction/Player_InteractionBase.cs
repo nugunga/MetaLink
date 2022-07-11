@@ -22,7 +22,7 @@ namespace Metalink.Player
         {
             get
             {
-                Ray I_cameraRay = m_FirstPersonCamera.ScreenPointToRay(Input.mousePosition);
+                Ray I_cameraRay = m_FirstPersonCamera.ScreenPointToRay(m_PlayerInput.MousePosition);
                 Physics.Raycast(I_cameraRay, out RaycastHit I_raycastHit, m_PlayerStatus.m_InteractionDistance);
                 return I_raycastHit;
             }

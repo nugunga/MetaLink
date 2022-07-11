@@ -23,6 +23,9 @@ namespace Metalink.Player
             I_firstPerson.View.performed += UpdateViewDelta;
             I_firstPerson.View.canceled += UpdateViewDelta;
 
+            I_firstPerson.MousePosition.canceled += UpdateMousePostion;
+            I_firstPerson.MousePosition.canceled += UpdateMousePostion;
+
             I_firstPerson.Run.started += val => m_IsRunning = true;
             I_firstPerson.Run.canceled += val => m_IsRunning = false;
 
@@ -59,9 +62,11 @@ namespace Metalink.Player
 
         public virtual void OnDisable() => m_PlayerInputAction.Disable();
 
-        public void UpdateMoveDelta(InputAction.CallbackContext p_CallbackContext) => this.m_MoveDelta = p_CallbackContext.ReadValue<Vector2>();
+        public void UpdateMoveDelta(InputAction.CallbackContext p_CallbackContext) => this.MoveDelta = p_CallbackContext.ReadValue<Vector2>();
 
-        public void UpdateViewDelta(InputAction.CallbackContext p_CallbackContext) => this.m_MouseDelta = p_CallbackContext.ReadValue<Vector2>();
+        public void UpdateViewDelta(InputAction.CallbackContext p_CallbackContext) => this.MouseDelta = p_CallbackContext.ReadValue<Vector2>();
+
+        public void UpdateMousePostion(InputAction.CallbackContext p_CallbackContext) => this.m_MousePosition = p_CallbackContext.ReadValue<Vector2>();
 
         public void OnClickMenuKey(InputAction.CallbackContext p_CallbackContext)
         {

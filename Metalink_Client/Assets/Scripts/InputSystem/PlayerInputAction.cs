@@ -137,6 +137,15 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MousePosition"",
+                    ""type"": ""Value"",
+                    ""id"": ""31cdaeb3-200d-4eb3-bce8-ef31aec07ad9"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -258,6 +267,17 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Interaction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""376db849-7b08-4e07-a2f6-859d651055b8"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MousePosition"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -391,6 +411,7 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
         m_FirstPerson_Crouch = m_FirstPerson.FindAction("Crouch", throwIfNotFound: true);
         m_FirstPerson_Grab = m_FirstPerson.FindAction("Grab", throwIfNotFound: true);
         m_FirstPerson_Interaction = m_FirstPerson.FindAction("Interaction", throwIfNotFound: true);
+        m_FirstPerson_MousePosition = m_FirstPerson.FindAction("MousePosition", throwIfNotFound: true);
         // MapEditor
         m_MapEditor = asset.FindActionMap("MapEditor", throwIfNotFound: true);
         m_MapEditor_Pan = m_MapEditor.FindAction("Pan", throwIfNotFound: true);
@@ -503,6 +524,7 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
     private readonly InputAction m_FirstPerson_Crouch;
     private readonly InputAction m_FirstPerson_Grab;
     private readonly InputAction m_FirstPerson_Interaction;
+    private readonly InputAction m_FirstPerson_MousePosition;
     public struct FirstPersonActions
     {
         private @PlayerInputAction m_Wrapper;
@@ -514,6 +536,7 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
         public InputAction @Crouch => m_Wrapper.m_FirstPerson_Crouch;
         public InputAction @Grab => m_Wrapper.m_FirstPerson_Grab;
         public InputAction @Interaction => m_Wrapper.m_FirstPerson_Interaction;
+        public InputAction @MousePosition => m_Wrapper.m_FirstPerson_MousePosition;
         public InputActionMap Get() { return m_Wrapper.m_FirstPerson; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -544,6 +567,9 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
                 @Interaction.started -= m_Wrapper.m_FirstPersonActionsCallbackInterface.OnInteraction;
                 @Interaction.performed -= m_Wrapper.m_FirstPersonActionsCallbackInterface.OnInteraction;
                 @Interaction.canceled -= m_Wrapper.m_FirstPersonActionsCallbackInterface.OnInteraction;
+                @MousePosition.started -= m_Wrapper.m_FirstPersonActionsCallbackInterface.OnMousePosition;
+                @MousePosition.performed -= m_Wrapper.m_FirstPersonActionsCallbackInterface.OnMousePosition;
+                @MousePosition.canceled -= m_Wrapper.m_FirstPersonActionsCallbackInterface.OnMousePosition;
             }
             m_Wrapper.m_FirstPersonActionsCallbackInterface = instance;
             if (instance != null)
@@ -569,6 +595,9 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
                 @Interaction.started += instance.OnInteraction;
                 @Interaction.performed += instance.OnInteraction;
                 @Interaction.canceled += instance.OnInteraction;
+                @MousePosition.started += instance.OnMousePosition;
+                @MousePosition.performed += instance.OnMousePosition;
+                @MousePosition.canceled += instance.OnMousePosition;
             }
         }
     }
@@ -636,6 +665,7 @@ public partial class @PlayerInputAction : IInputActionCollection2, IDisposable
         void OnCrouch(InputAction.CallbackContext context);
         void OnGrab(InputAction.CallbackContext context);
         void OnInteraction(InputAction.CallbackContext context);
+        void OnMousePosition(InputAction.CallbackContext context);
     }
     public interface IMapEditorActions
     {
