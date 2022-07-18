@@ -21,7 +21,7 @@ namespace Metalink.UI
             });
 
             m_Login.m_LoginFailureEvent += (result) => {
-                m_Alter.Active(result.GenerateErrorReport());
+                m_Alter.Active(result);
             };
         }
     }
