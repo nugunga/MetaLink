@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace Metalink
+namespace Metalink.Object
 {
     public abstract class MetalinkBehaviour : MetalinkComponent
     {

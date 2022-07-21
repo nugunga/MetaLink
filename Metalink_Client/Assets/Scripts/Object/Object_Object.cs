@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System;
 
-namespace Metalink
+namespace Metalink.Object
 {
     public abstract class MetalinkObject
     {

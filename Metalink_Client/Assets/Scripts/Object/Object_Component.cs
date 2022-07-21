@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Metalink
+namespace Metalink.Object
 {
     public abstract class MetalinkComponent : MetalinkObject
     {

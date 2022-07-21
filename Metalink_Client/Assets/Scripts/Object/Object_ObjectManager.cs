@@ -4,11 +4,11 @@ using System.Collections;
 using UnityEngine.Events;
 using UnityEngine;
 
-namespace Metalink.Manager
+namespace Metalink.Object
 {
     public class Manager_ObjectManager : MonoBehaviour
     {
-        public List<MetalinkBehaviour> metalinkBehaviours = new List<MetalinkBehaviour>();
+        public List<MetalinkBehaviour> m_MetalinkBehaviours = new List<MetalinkBehaviour>();
 
         public UnityAction m_Update;
         public UnityAction m_FixedUpdate;
