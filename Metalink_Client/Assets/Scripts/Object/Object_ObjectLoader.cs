@@ -35,6 +35,7 @@ namespace Metalink.Object
         public string m_Script;
         public string m_Name;
         public string m_Src;
+        public bool m_IsLocal;
         public string m_JsonData;
 
         public override string ToString() => $"type : {m_Type}, script : {m_Script}, name : {m_Name}, src : {m_Src}, m_JsonData : {m_JsonData}";
