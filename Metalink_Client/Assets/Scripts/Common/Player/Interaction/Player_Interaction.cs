@@ -34,6 +34,8 @@ namespace Metalink.Player
         {
             Collider I_targetCollider = InteractionCast.collider;
 
+            print(I_targetCollider.name);
+
             if (I_targetCollider == null)
                 return;
 

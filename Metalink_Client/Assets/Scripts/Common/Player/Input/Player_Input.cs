@@ -23,7 +23,7 @@ namespace Metalink.Player
             I_firstPerson.View.performed += UpdateViewDelta;
             I_firstPerson.View.canceled += UpdateViewDelta;
 
-            I_firstPerson.MousePosition.canceled += UpdateMousePostion;
+            I_firstPerson.MousePosition.performed += UpdateMousePostion;
             I_firstPerson.MousePosition.canceled += UpdateMousePostion;
 
             I_firstPerson.Run.started += val => m_IsRunning = true;

@@ -18,7 +18,9 @@ namespace Metalink.Player
             {
                 if(m_MoveDelta != value) {
                     m_MoveDelta = value;
-                    m_MoveDeltaUpdateAction(m_MoveDelta);
+
+                    if (m_MoveDeltaUpdateAction != null)
+                        m_MoveDeltaUpdateAction(m_MoveDelta);
                 }
             }
         }
@@ -29,7 +31,9 @@ namespace Metalink.Player
             {
                 if (m_MouseDelta != value) {
                     m_MouseDelta = value;
-                    m_MouseDeltaUpdateAction(m_MouseDelta);
+                    
+                    if(m_MouseDeltaUpdateAction != null)
+                        m_MouseDeltaUpdateAction(m_MouseDelta);
                 }
             }
         }
